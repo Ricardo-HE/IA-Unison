@@ -1,0 +1,94 @@
+\documentclass[onecolumn, letter, 12pt]{article}
+
+\usepackage{fourier}
+\usepackage[utf8]{inputenc}
+\usepackage[sumlimits]{amsmath}
+\usepackage{graphicx}
+\usepackage[spanish]{babel}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{geometry}
+
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+
+
+\title{Examen rápido No. 6} 
+\author{Inteligencia Artificial\\ \textsc{Julio Waissman Vilanova}}
+\date{}
+
+
+\begin{document}
+
+\maketitle
+
+\section*{Un problema de búsqueda simple}
+
+Considere un tablero de $N\times N$ y un agente, el cual solo se puede mover en el tablero
+con las acciones \emph{izquierda}, \emph{derecha}, \emph{arriba}, \emph{abajo}. Los
+estados se representan por la tupla $(x,y)$, el estado inicial es la posición $(x_0,y_0)$
+y el estado final es la posición $(x_f,y_f)$.  Responda las siguientes preguntas (5 puntos
+por pregunta):
+
+\begin{enumerate}
+\item Máximo factor de ramificación $b$.
+\item Cuantos estados diferentes se encuentran a profundidad $k$.
+\item Máximo número de nodos expandidos por la búsqueda primero a lo ancho en árboles.
+\item Máximo número de nodos expandidos por la búsqueda primero a lo ancho en grafos.
+\item Máximo número de nodos expandidos por la búsqueda primero a lo profundo en árboles.
+\item Máximo número de nodos expandidos por la búsqueda primero a lo profundo en grafos.
+\item ¿La heurística $h(n) = |n.estado[0] - x_f| + |n.estado[1] - y_f|$ es admisible? 
+\item Máximo número de nodos expandidos utilizando A* y $h$ del inciso anterior.
+\item ¿$h$ continúa siendo admisible si se agregan paredes al tablero?
+\item ¿$h$ continúa siendo admisible si se asume que los cuadros de la derecha se conectan con los de la izquierda (como si fuera un cilindro)?
+\end{enumerate}
+
+\newpage
+
+\section*{Un puzzle un poco diferente}
+
+El \emph{rompecabezas deslizante} es una versión diferente del 15 puzzle, en la cual cada linea y cada columna se deslizan, como si se encontrara en una esfera (por supuesto que este tipo de rompecabezas no se puede hacer en madera, pero en la computadora es facilísimo). Un esquema del entorno es el siguiente:
+
+\begin{center}
+\begin{tabular}{c|c|c|c|c|c}
+           & $\Uparrow$& $\Uparrow$& $\Uparrow$& $\Uparrow$&            \\
+\hline
+$\Leftarrow$ &     1     &     2     &     3     &      4    & $\Rightarrow$ \\
+\hline
+$\Leftarrow$ &     5     &     6     &     7     &      8    & $\Rightarrow$ \\
+\hline
+$\Leftarrow$ &     9     &    10     &    11     &     12    & $\Rightarrow$ \\
+\hline
+$\Leftarrow$ &    13     &    14     &    15     &     16    & $\Rightarrow$ \\
+\hline
+            & $\Downarrow$ & $\Downarrow$ & $\Downarrow$ & $\Downarrow$ &  \\
+\end{tabular}
+\end{center}
+
+Las acciones que el agente puede realizar sobre el ambiente son: a) Girar por la derecha
+el renglón $i$ ($i \in \{1,2,3,4\}$); b) Girar por la izquierda el renglón $i$ ($i \in
+\{1,2,3,4\}$); c) Girar por arriba la columna $j$ ($j \in \{1,2,3,4\}$); y d) Girar por
+abajo la columna $j$ ($j \in \{1,2,3,4\}$). Se asume que el ambiente es completamente
+observable. El objetivo del agente es que, después de aplicar un cierto numero de movimientos aleatorios
+y no observados, el agente pueda realizar las acciones necesarias para regresar el sistema
+al estado mostrado en el esquema anterior, utilizando la menor cantidad de movimientos
+posibles.
+
+Conteste las siguientes preguntas (5 puntos por pregunta):
+
+\begin{enumerate}
+\item Establezca una manera de representar el estado del problema.
+\item Establezca cuales serían las acciones legales en un estado dado.
+\item Establezca el estado sucesor a un estado dado, si se selecciona una acción.
+\item Establezca el costo local dependiendo del estado y la acción. 
+\item ¿Cual es la cardinalidad del espacio de estado?
+\item ¿La distancia de Manhattan, o el número de piezas mal colocadas podrían ser
+  heurísticas admisibles?
+\item Desarrolle 2 heurísticas ($h_1(n)$ y $h_2(n)$) para resolver el problema por el método de búsqueda A*. 
+\item Demuestre (o haga un esbozo de demostración) que las heurísticas son admisibles. 
+\item Determine si una heurística es dominante respecto a la otra. Demuestre que lo son (o que no lo son, en su caso).
+\item ¿La búsqueda en grafos ofrecería ventajas respecto a la búsqueda en árboles en este problema? Justifique su respuesta.
+\end{enumerate}
+
+
+\end{document}

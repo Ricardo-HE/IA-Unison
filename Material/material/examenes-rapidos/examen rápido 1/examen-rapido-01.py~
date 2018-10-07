@@ -1,0 +1,14 @@
+
+
+class coordenadas(Object):
+    def __init__(self, x=0, y=0):
+        "Inicializa un objet coordenadas"
+        self.x = x
+        self.y = y
+
+    def __str__(self):        
+        return "Coordenada x = {}\nCoordenada y = {}".format(self.x,  self.y)
+
+a =  coordenadas(3,  4)
+print(a)
+

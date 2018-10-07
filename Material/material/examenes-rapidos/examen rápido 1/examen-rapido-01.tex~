@@ -1,0 +1,120 @@
+\documentclass[onecolumn, letter, 10pt]{article}
+
+\usepackage{fourier}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage[sumlimits]{amsmath}
+\usepackage{graphicx}
+\usepackage[spanish]{babel}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{geometry}
+
+\geometry{left=2.5cm,right=2.5cm,top=2cm,bottom=2cm}
+
+
+\title{Programas para practicar}
+\author{Inteligencia Artificial\\ \textsc{Julio Waissman Vilanova}}
+\date{Universidad de Sonora}
+
+
+\begin{document}
+
+\maketitle
+
+\section{Instalando y usando Python}
+
+\begin{enumerate}
+\item ¿Que significa que unos tipos sean \emph{mutables} y otros \emph{inmutables}? Realiza un pequeño programa donde quede claro lo que significa que un tipo de datos sea mutable, e ilustra el uso del método \texttt{copy.deepcopy()}.  
+
+\item Escribe una expresión que verifique que $10^{\log_{10}|n|} = n$ para 5 valores de $n$ diferentes. Realiza la comparación e imprime en pantalla ambos resultados.
+\end{enumerate}
+
+\section{Listas y diccionarios}
+
+\begin{enumerate}
+\item Escribe, en una sola linea, una expresión que genere todos los números enteros que se encuentran entre $1$ y $1000$ que sean divisibles por $2$, $3$, $5$ y $7$ al mismo tiempo. Aprovecha de las ventajas para crear listas de:
+\begin{verbatim}
+	[expresión  for elemento in lista],
+	[expresión  for elemento in lista if condición]
+\end{verbatim}
+ 
+\item Escribe una función que reciba una lista de elementos (letras, numeros, lo que sea), cuente la ocurrencia de cada elemento en la lista y la devuelva en forma de diccionario e imprima un histograma de ocurrencias, por ejemplo:
+\begin{verbatim}
+>>> d = FuncionEjemplo( [1,'a',1, 13, 'hola', 'a', 1, 1, 'a', 1], Imprime = True)
+
+1               *****   (5 -> 50%)
+'a'             ***     (3 -> 30%)
+13              *       (1 -> 10%)
+'hola'          *       (1 -> 10%)
+
+>>> print d
+{1:5, 'a':3, 13:1, 'hola':1}		
+\end{verbatim}
+
+\item Escribe una función que modifique un diccionario y regrese el diccionario modificado y una copia del original, donde cada entrada del diccionario sea una lista de valores, ejemplo de la función:
+\begin{verbatim}
+>>> dic1 = {'Pepe':[12, 'enero', 1980], 'Carolina':[15,'mayo',1975],'Paco':[10,'nov',1970]}
+>>> dic2 = fundicos(dic1, 'Pepe', 1, 'febrero')
+>>> print dic1 
+{'Pepe':[12, 'enero', 1980], 'Carolina':[15,'mayo',1975],'Paco':[10,'nov',1970]}
+>>> print dic2 
+{'Pepe':[12, 'febrero', 1980], 'Carolina':[15,'mayo',1975],'Paco':[10,'nov',1970]}
+\end{verbatim}
+
+\end{enumerate}
+
+\section{Funciones y clases}
+
+\begin{enumerate}
+
+\item Escribe una función \texttt{ fun1 } que reciba un número $n$ y calcule el número primo inmediatamente superior. Escribe una función \texttt{ fun2 } que reciba como argumento un numero y una función, y devuelva una lista con la evaluación de la función desde $1$ hasta $n$. Prueba la función con \texttt{fun1} y con \texttt{math.sqrt}. 
+
+\item Escribe una función, lo más compacta posible, que escoja entre los 3 patrones ascii a continuación, e imprima en pantalla el deseado, pero de la dimensión $n$ deseada ($n \ge 4$, toma en cuanta que para algunos valores de $n$ habrá algún(os) patrones que no se puedan hacer).
+\begin{verbatim}
+          *             ++++           oooooooo
+          **            ++++           ooo  ooo
+          ***           ++++           oo    oo
+          ****          ++++           o      o
+          *****             ++++       o      o
+          ******            ++++       oo    oo
+          *******           ++++       ooo  ooo
+          ********          ++++       oooooooo
+\end{verbatim}
+
+
+\item Diseña una clase Matriz e implementa con sobrecarga la suma de matrices, la multiplicación de matrices y la multiplicación por un escalar, eliminar columna y eliminar fila. Como inicialización de un objeto es necesario conocer $n$ y $m$ (en caso de no proporcionarlos la matriz tendrá una dimensión de $1 \times 1$. Igualmente, de no especificarse todos los elementos se inicializan a 0, a menos que exista un tipo espacial ( 'unos' o 'diag' por el momento). Programa la representación visual de la matriz. Ten en cuenta tambien el manejo de errores. Por ejemplo, para su uso:
+\begin{verbatim}
+>>> A = Matriz(n=3, m=4)
+>>> print A
+0 0 0 0
+0 0 0 0
+0 0 0 0
+>>> A = A.quitafila(2)
+>>> print A
+0 0 0 0
+0 0 0 0
+>>> B = Matriz(4,4,'diag')
+>>> print B
+1 0 0 0
+0 1 0 0
+0 0 1 0
+0 0 0 1
+>>> C = Matriz(4,1,'unos')
+>>> print C
+1
+1
+1
+1
+>>> D = 3*B*C
+>>> print D
+3
+3
+3
+3
+>>> E = 3*B + C
+error "No seas menso, si no son de la misma dimensión las matrices no se pueden sumar"
+\end{verbatim}
+\end{enumerate}
+\end{document}
